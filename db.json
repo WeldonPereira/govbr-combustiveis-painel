@@ -1,0 +1,26 @@
+{
+  "combustiveis": [
+    { "id": 1, "tipo": "Gasolina", "precoMedio": 5.89 },
+    { "id": 2, "tipo": "Diesel", "precoMedio": 6.12 }
+  ],
+  "abastecimentos": [
+    {
+      "id": 1,
+      "data": "2024-01-10",
+      "posto": "Posto Brasil",
+      "cidade": "Recife",
+      "uf": "PE",
+      "combustivel": "Gasolina",
+      "valorLitro": 5.79,
+      "totalPago": 289.50,
+      "motoristaId": 1,
+      "veiculoId": 1
+    }
+  ],
+  "motoristas": [
+    { "id": 1, "nome": "João da Silva", "cpf": "12345678900" }
+  ],
+  "veiculos": [
+    { "id": 1, "placa": "ABC1D23", "modelo": "Onix" }
+  ]
+}
