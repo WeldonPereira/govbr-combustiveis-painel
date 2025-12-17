@@ -1,0 +1,36 @@
+<section class="ds-dashboard" aria-labelledby="titulo-painel">
+  <header class="ds-dashboard__header">
+    <h2 id="titulo-painel" class="ds-dashboard__title">
+      Painel de Indicadores
+    </h2>
+    <p class="ds-dashboard__description">
+      Acompanhamento consolidado dos dados de abastecimento.
+    </p>
+  </header>
+
+  <div class="ds-dashboard__grid">
+    @for (c of combustiveis$ | async; track c.id) {
+      <article class="ds-card" role="status">
+        <span class="ds-card__label">{{ c.tipo }}</span>
+        <strong class="ds-card__value">
+          R$ {{ c.precoMedio }}
+        </strong>
+        <span class="ds-card__meta">Preço médio</span>
+      </article>
+    }
+
+    <article class="ds-card ds-card--highlight" role="status">
+      <span class="ds-card__label">Total de abastecimentos</span>
+      <strong class="ds-card__value">
+        {{ totalAbastecimentos$ | async }}
+      </strong>
+    </article>
+
+    <article class="ds-card ds-card--highlight" role="status">
+      <span class="ds-card__label">Total gasto</span>
+      <strong class="ds-card__value">
+        R$ {{ totalGasto$ | async }}
+      </strong>
+    </article>
+  </div>
+</section>

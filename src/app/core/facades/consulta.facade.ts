@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Abastecimento } from '../models/abastecimento.model';
+import { CombustivelApiService } from '../services/combustivel-api.service';
 import { AbastecimentoApiService } from '../services/abastecimento-api.service';
 
 @Injectable({ providedIn: 'root' })
 export class ConsultaFacade {
-  abastecimentos$!: Observable<Abastecimento[]>;
 
-  constructor(private abastecimentoApi: AbastecimentoApiService) {
+  combustiveis$;
+  abastecimentos$;
+
+  constructor(
+    private combustivelApi: CombustivelApiService,
+    private abastecimentoApi: AbastecimentoApiService
+  ) {
+    this.combustiveis$ = this.combustivelApi.listar();
     this.abastecimentos$ = this.abastecimentoApi.listar();
   }
 }
