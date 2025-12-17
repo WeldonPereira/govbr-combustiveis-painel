@@ -1,0 +1,6 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <span *ngFor="let item of items; let last = last">
+    {{ item }}
+    <span *ngIf="!last"> &gt; </span>
+  </span>
+</nav>
