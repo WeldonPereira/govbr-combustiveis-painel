@@ -1,17 +1,16 @@
 import { Routes } from '@angular/router';
-import { GovLayout } from './layout/gov-layout/gov-layout';
+import { GovLayoutComponent } from './layout/gov-layout/gov-layout';
 
 export const routes: Routes = [
   {
     path: '',
-    component: GovLayout,
+    component: GovLayoutComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         loadComponent: () =>
-          import('./features/placeholder/placeholder')
-            .then(m => m.PlaceholderComponent)
-      }
-    ]
-  }
+          import('./features/dashboard/dashboard').then((m) => m.DashboardComponent),
+      },
+    ],
+  },
 ];
