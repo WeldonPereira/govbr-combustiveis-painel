@@ -1,0 +1,36 @@
+<section class="consulta">
+  <header class="consulta-header">
+    <h1>Consulta de Abastecimentos</h1>
+    <p>Relação de registros cadastrados no sistema.</p>
+  </header>
+
+  <div class="table-wrapper">
+    <table class="gov-table" aria-label="Tabela de abastecimentos">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Posto</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">UF</th>
+          <th scope="col">Combustível</th>
+          <th scope="col">Valor/L</th>
+          <th scope="col">Total Pago</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (a of abastecimentos$ | async; track a.id) {
+        <tr>
+          <td data-label="Data">{{ a.data }}</td>
+          <td data-label="Posto">{{ a.posto }}</td>
+          <td data-label="Cidade">{{ a.cidade }}</td>
+          <td data-label="UF">{{ a.uf }}</td>
+          <td data-label="Combustível">{{ a.combustivel }}</td>
+          <td data-label="Valor/L">R$ {{ a.valorLitro }}</td>
+          <td data-label="Total Pago">R$ {{ a.totalPago }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
