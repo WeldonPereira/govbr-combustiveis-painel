@@ -1,28 +1,40 @@
-<section class="dashboard" aria-labelledby="titulo-dashboard">
-  <header class="dashboard-header">
-    <h1 id="titulo-dashboard">Painel de Indicadores</h1>
-    <p>Acompanhamento consolidado dos dados de abastecimento.</p>
-  </header>
+<section class="dashboard">
+  <h1>Dashboard Gerencial</h1>
+  <p>Visão consolidada dos principais indicadores.</p>
 
-  <div class="dashboard-grid">
-    @for (c of combustiveis$ | async; track c.id) {
-    <article class="dashboard-card" role="status">
-      <span class="dashboard-card__label">{{ c.tipo }}</span>
-      <strong class="dashboard-card__value"> R$ {{ c.precoMedio }} </strong>
-      <span class="dashboard-card__meta">Preço médio</span>
-    </article>
-    }
+  <div class="kpis">
+    <div class="kpi-card">
+      <h3>Preço Médio Nacional</h3>
+      <p>
+        Gasolina:
+        <strong>R$ {{ (precoMedioNacional$ | async)?.gasolina | number : '1.2-2' }}</strong>
+      </p>
+      <p>
+        Diesel:
+        <strong>R$ {{ (precoMedioNacional$ | async)?.diesel | number : '1.2-2' }}</strong>
+      </p>
+    </div>
 
-    <article class="dashboard-card dashboard-card--highlight" role="status">
-      <span class="dashboard-card__label">Total de abastecimentos</span>
-      <strong class="dashboard-card__value">
-        {{ totalAbastecimentos$ | async }}
-      </strong>
-    </article>
+    <div class="kpi-card">
+      <h3>Total de Litros Consumidos</h3>
+      <p>
+        <strong>{{ totalLitros$ | async | number : '1.0-0' }} L</strong>
+      </p>
+    </div>
 
-    <article class="dashboard-card dashboard-card--highlight" role="status">
-      <span class="dashboard-card__label">Total gasto</span>
-      <strong class="dashboard-card__value"> R$ {{ totalGasto$ | async }} </strong>
-    </article>
+    <div class="kpi-card">
+      <h3>Postos Monitorados</h3>
+      <p>
+        <strong>{{ totalPostos$ | async }}</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="charts">
+    <h2>Evolução de Preço (últimos meses)</h2>
+    <canvas id="priceChart"></canvas>
+
+    <h2>Consumo por UF</h2>
+    <canvas id="ufChart"></canvas>
   </div>
 </section>
