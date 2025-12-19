@@ -1,36 +1,110 @@
-<section class="consulta">
-  <header class="consulta-header">
-    <h1>Consulta de Abastecimentos</h1>
-    <p>Relação de registros cadastrados no sistema.</p>
+<section class="consulta-gov">
+  <header class="consulta-gov__header">
+    <h1 class="consulta-gov__title">Consulta de Abastecimentos</h1>
+    <p class="consulta-gov__subtitle">Visualize e filtre registros de abastecimento monitorados</p>
   </header>
 
-  <div class="table-wrapper">
-    <table class="gov-table" aria-label="Tabela de abastecimentos">
+  <form class="consulta-gov__filters">
+    <div class="filter-group">
+      <label for="uf">Estado (UF)</label>
+      <select id="uf" (change)="facade.filtrarUf($any($event.target).value)">
+        <option value="">Todos os Estados</option>
+        <option value="AC">AC</option>
+        <option value="AL">AL</option>
+        <option value="AP">AP</option>
+        <option value="AM">AM</option>
+        <option value="BA">BA</option>
+        <option value="CE">CE</option>
+        <option value="DF">DF</option>
+        <option value="ES">ES</option>
+        <option value="GO">GO</option>
+        <option value="MA">MA</option>
+        <option value="MT">MT</option>
+        <option value="MS">MS</option>
+        <option value="MG">MG</option>
+        <option value="PA">PA</option>
+        <option value="PB">PB</option>
+        <option value="PR">PR</option>
+        <option value="PE">PE</option>
+        <option value="PI">PI</option>
+        <option value="RJ">RJ</option>
+        <option value="RN">RN</option>
+        <option value="RS">RS</option>
+        <option value="RO">RO</option>
+        <option value="RR">RR</option>
+        <option value="SC">SC</option>
+        <option value="SP">SP</option>
+        <option value="SE">SE</option>
+        <option value="TO">TO</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="combustivel">Combustível</label>
+      <select id="combustivel" (change)="facade.filtrarCombustivel($any($event.target).value)">
+        <option value="">Todos</option>
+        <option value="Gasolina">Gasolina</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Etanol">Etanol</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Período</label>
+      <div class="date-range">
+        <input
+          type="date"
+          (change)="
+            facade.filtrarPeriodo(
+              $any($event.target).value,
+              $any($event.target.nextElementSibling).value
+            )
+          "
+        />
+        <input
+          type="date"
+          (change)="
+            facade.filtrarPeriodo(
+              $any($event.target.previousElementSibling).value,
+              $any($event.target).value
+            )
+          "
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="consulta-gov__table-wrapper">
+    <table class="consulta-gov__table">
       <thead>
         <tr>
-          <th scope="col">Data</th>
-          <th scope="col">Posto</th>
-          <th scope="col">Cidade</th>
-          <th scope="col">UF</th>
-          <th scope="col">Combustível</th>
-          <th scope="col">Valor/L</th>
-          <th scope="col">Total Pago</th>
+          <th>Data</th>
+          <th>Posto</th>
+          <th>Cidade / UF</th>
+          <th>Combustível</th>
+          <th>Valor por Litro</th>
+          <th>Total Pago</th>
         </tr>
       </thead>
 
       <tbody>
-        @for (a of abastecimentos$ | async; track a.id) {
+        @for (a of registros$ | async; track a.id) {
         <tr>
-          <td data-label="Data">{{ a.data }}</td>
-          <td data-label="Posto">{{ a.posto }}</td>
-          <td data-label="Cidade">{{ a.cidade }}</td>
-          <td data-label="UF">{{ a.uf }}</td>
-          <td data-label="Combustível">{{ a.combustivel }}</td>
-          <td data-label="Valor/L">R$ {{ a.valorLitro }}</td>
-          <td data-label="Total Pago">R$ {{ a.totalPago }}</td>
+          <td>{{ a.data }}</td>
+          <td>{{ a.posto }}</td>
+          <td>{{ a.cidade }}/{{ a.uf }}</td>
+          <td>{{ a.combustivel }}</td>
+          <td>R$ {{ a.valorLitro }}</td>
+          <td class="total">R$ {{ a.totalPago }}</td>
         </tr>
         }
       </tbody>
     </table>
   </div>
+
+  <footer class="consulta-gov__pagination">
+    <button (click)="facade.paginaAnterior()">Anterior</button>
+    <span>Página {{ paginaAtual$ | async }} de {{ totalPaginas$ | async }}</span>
+    <button (click)="facade.proximaPagina()">Próxima</button>
+  </footer>
 </section>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConsultaFacade } from '../../core/facades/consulta.facade';
 import { Observable } from 'rxjs';
+import { ConsultaFacade } from '../../core/facades/consulta.facade';
 import { Abastecimento } from '../../core/models/abastecimento.model';
 
 @Component({
@@ -12,9 +12,14 @@ import { Abastecimento } from '../../core/models/abastecimento.model';
   styleUrls: ['./consulta.scss'],
 })
 export class ConsultaComponent {
-  abastecimentos$!: Observable<Abastecimento[]>;
 
-  constructor(private facade: ConsultaFacade) {
-    this.abastecimentos$ = this.facade.abastecimentos$;
+  registros$: Observable<Abastecimento[]>;
+  totalPaginas$: Observable<number>;
+  paginaAtual$: Observable<number>;
+
+  constructor(public facade: ConsultaFacade) {
+    this.registros$ = this.facade.paginados$;
+    this.totalPaginas$ = this.facade.totalPaginas$;
+    this.paginaAtual$ = this.facade.paginaAtual$;
   }
 }
