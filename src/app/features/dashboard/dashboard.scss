@@ -1,55 +1,57 @@
 .dashboard {
-  padding: 24px;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Roboto', Arial, sans-serif;
-  color: #1f1f1f;
+  padding: 2rem 1rem;
+  font-family: 'Rawline', Arial, sans-serif;
+  color: #1b1b1b;
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #1351b4;
-    margin-bottom: 4px;
+    color: #0c326f;
+    margin-bottom: 0.5rem;
   }
 
   > p {
     font-size: 1rem;
     color: #555;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 }
 
 .kpis {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .kpi-card {
   background-color: #ffffff;
-  border: 1px solid #d0d7e2;
-  border-radius: 8px;
-  padding: 20px 24px;
+
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(19, 81, 180, 0.12);
+    box-shadow: 0 4px 12px rgba(12, 50, 111, 0.12);
+    background: #f1f5ff;
   }
 
   h3 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1351b4;
-    margin-bottom: 12px;
+    color: #0c326f;
+    margin-bottom: 1rem;
   }
 
   p {
     font-size: 0.95rem;
     color: #333;
-    margin: 4px 0;
+    margin: 0.25rem 0;
 
     strong {
       font-size: 1.05rem;
@@ -62,23 +64,23 @@
 .charts {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 2.5rem;
 }
 
 .charts h2 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1351b4;
-  margin-bottom: 12px;
+  color: #0c326f;
+  margin-bottom: 1rem;
 }
 
 .charts canvas {
   width: 100% !important;
   max-width: 100%;
   background-color: #ffffff;
-  border: 1px solid #d0d7e2;
-  border-radius: 8px;
-  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
 }
 
 @media (max-width: 1024px) {
@@ -89,29 +91,19 @@
 
 @media (max-width: 768px) {
   .dashboard {
-    padding: 16px;
+    padding: 1.5rem 1rem;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
   }
 
   .kpis {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 1rem;
   }
 
   .charts h2 {
     font-size: 1.15rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .kpi-card {
-    padding: 16px;
-  }
-
-  .charts canvas {
-    padding: 12px;
   }
 }
