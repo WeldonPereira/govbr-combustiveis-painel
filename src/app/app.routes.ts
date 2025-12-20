@@ -20,6 +20,13 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/consulta/consulta').then((m) => m.ConsultaComponent),
       },
+      {
+        path: 'consulta/:id',
+        loadComponent: () =>
+          import('./features/consulta-detalhe/consulta-detalhe').then(
+            (m) => m.ConsultaDetalheComponent
+          ),
+      },
     ],
   },
 ];

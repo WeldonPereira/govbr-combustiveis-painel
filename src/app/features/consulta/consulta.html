@@ -44,8 +44,6 @@
       <select id="combustivel" (change)="facade.filtrarCombustivel($any($event.target).value)">
         <option value="">Todos</option>
         <option value="Gasolina">Gasolina</option>
-        <option value="Diesel">Diesel</option>
-        <option value="Etanol">Etanol</option>
       </select>
     </div>
 
@@ -75,32 +73,36 @@
   </form>
 
   <div class="consulta-gov__table-wrapper">
-    <table class="consulta-gov__table">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Posto</th>
-          <th>Cidade / UF</th>
-          <th>Combustível</th>
-          <th>Valor por Litro</th>
-          <th>Total Pago</th>
-        </tr>
-      </thead>
+  <table class="consulta-gov__table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Posto</th>
+        <th>Cidade / UF</th>
+        <th>Combustível</th>
+        <th>Valor por Litro</th>
+        <th>Total Pago</th>
+        <th class="text-center">Ações</th> </tr>
+    </thead>
 
-      <tbody>
-        @for (a of registros$ | async; track a.id) {
-        <tr>
-          <td>{{ a.data }}</td>
-          <td>{{ a.posto }}</td>
-          <td>{{ a.cidade }}/{{ a.uf }}</td>
-          <td>{{ a.combustivel }}</td>
-          <td>R$ {{ a.valorLitro }}</td>
-          <td class="total">R$ {{ a.totalPago }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      @for (a of registros$ | async; track a.id) {
+      <tr class="consulta-gov__row"> <td>{{ a.data }}</td>
+        <td>{{ a.posto }}</td>
+        <td>{{ a.cidade }}/{{ a.uf }}</td>
+        <td>{{ a.combustivel }}</td>
+        <td>R$ {{ a.valorLitro }}</td>
+        <td class="total">R$ {{ a.totalPago }}</td>
+        <td class="text-center">
+          <button class="btn-detalhes" (click)="abrirDetalhe(a.id)">
+            Ver detalhes
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
 
   <footer class="consulta-gov__pagination">
     <button (click)="facade.paginaAnterior()">Anterior</button>
