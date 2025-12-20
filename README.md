@@ -1,59 +1,117 @@
-# GovCombustiveisPainel
+# Gov Combustíveis – Painel Gerencial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Painel web desenvolvido em **Angular** para visualização e consulta de dados sobre combustíveis, seguindo o padrão visual e conceitual do **gov.br**.  
+O sistema fornece uma **visão gerencial (Dashboard)** e uma **consulta detalhada de abastecimentos**, utilizando uma API mockada com `json-server`.
 
-## Development server
+## Visão Geral
 
-To start a local development server, run:
+O **Gov Combustíveis** tem como objetivo disponibilizar informações organizadas e acessíveis sobre preços, consumo e registros de abastecimento, apoiando análises gerenciais e consultas operacionais.
 
+O projeto foi construído utilizando:
+- Angular com **Standalone Components**
+- Arquitetura baseada em **features**, **core** e **layout**
+- Padrão **Facade**
+- API mockada via **db.json**
+- Estilo inspirado no **Design System gov.br (DS-GOV)**
+
+## Funcionalidades
+
+### Home
+- Página inicial no estilo gov.br
+- Acesso rápido às principais áreas do sistema:
+  - Dashboard
+  - Consulta de Abastecimentos
+
+### Dashboard (Visão Gerencial)
+- Cards de KPI:
+  - Preço Médio Nacional
+  - Total de Abastecimentos
+  - Total Gasto
+- Estrutura preparada para gráficos e análises visuais
+- Foco em clareza e tomada de decisão
+
+### Consulta de Abastecimentos
+- Listagem detalhada de registros
+- Filtros avançados:
+  - Estado (UF)
+  - Tipo de combustível
+  - Período (data)
+- Paginação
+- Consumo de dados via API mockada
+
+## Tecnologias Utilizadas
+
+- **Angular** (Standalone Components)
+- **TypeScript**
+- **SCSS**
+- **RxJS**
+- **Angular Router**
+- **json-server**
+- **Node.js / npm**
+
+## Estrutura do Projeto
+
+```text
+src/
+ ├── app/
+ │   ├── core/          # Services, facades e models
+ │   ├── features/      # Dashboard, Consulta, Home
+ │   ├── layout/        # Layout principal gov.br
+ │   ├── shared/        # Componentes reutilizáveis
+ │   ├── app.routes.ts  # Rotas
+ │   └── app.ts         # Componente raiz
+db.json                 # API mockada
+```
+## Como Executar o Projeto
+
+### 1️ Clonar o repositório
 ```bash
+git clone https://github.com/WeldonPereira/govbr-combustiveis-painel.git
+cd gov-combustiveis-painel
+```
+### 2 Instalar as dependências
+```bash
+npm install
+```
+
+### 3 Executar a API Mock (json-server)
+Abra um terminal e execute:
+```bash
+npm run mock
+```
+A API ficará disponível em:
+http://localhost:3000
+
+### 4 Executar a aplicação Angular
+
+Abra outro terminal e execute:
+```
 ng serve
 ```
+A aplicação estará disponível em:
+http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Dados Mockados
+Os dados são fornecidos pelo arquivo db.json, contendo:
+- Combustíveis
+- Abastecimentos
+- Motoristas
+- Veículos
+Esses dados simulam uma API REST para desenvolvimento e testes.
 
-## Code scaffolding
+## Padrões e Arquitetura
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Standalone Components (Angular moderno)
 
-```bash
-ng generate component component-name
-```
+- Facade Pattern para centralizar regras de negócio
+- Separação clara de responsabilidades:
+   - UI → Components
+   - Regras → Facades
+   - Comunicação HTTP → Services
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Licença
 
-```bash
-ng generate --help
-```
+Projeto desenvolvido para fins educacionais e avaliativos.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Autor
+Weldon Pereira
