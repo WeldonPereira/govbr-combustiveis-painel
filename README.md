@@ -67,7 +67,7 @@ db.json                 # API mockada
 ### 1️ Clonar o repositório
 ```bash
 git clone https://github.com/WeldonPereira/govbr-combustiveis-painel.git
-cd gov-combustiveis-painel
+cd govbr-combustiveis-painel
 ```
 ### 2 Instalar as dependências
 ```bash
