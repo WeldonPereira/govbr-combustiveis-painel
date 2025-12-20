@@ -1,0 +1,24 @@
+<section *ngIf="detalhe$ | async as d">
+  <h2>Detalhes do Abastecimento</h2>
+
+  <h3>Abastecimento</h3>
+  <p><strong>Posto:</strong> {{ d.abastecimento.posto }}</p>
+  <p><strong>Data:</strong> {{ d.abastecimento.data }}</p>
+  <p><strong>Combustível:</strong> {{ d.abastecimento.combustivel }}</p>
+  <p><strong>Total Pago:</strong> {{ d.abastecimento.totalPago | currency : 'BRL' }}</p>
+
+  <hr />
+
+  <h3>Motorista</h3>
+  <p><strong>Nome:</strong> {{ d.motorista.nome }}</p>
+  <p><strong>CPF:</strong> {{ mascararCpf(d.motorista.cpf) }}</p>
+
+  <hr />
+
+  <h3>Veículo</h3>
+  <p><strong>Placa:</strong> {{ d.veiculo.placa }}</p>
+  <p><strong>Modelo:</strong> {{ d.veiculo.modelo }}</p>
+
+  <button class="gov-button" (click)="reportarErro()">Reportar erro</button>
+  <a routerLink="/consulta" routerLinkActive="active" class="gov-button">Voltar para consulta</a>
+</section>

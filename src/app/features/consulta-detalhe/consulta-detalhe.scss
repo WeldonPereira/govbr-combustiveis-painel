@@ -1,0 +1,91 @@
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Rawline', Arial, sans-serif;
+  color: #1b1b1b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0c326f;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #0c326f;
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1351b4;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    color: #333;
+
+    strong {
+      color: #1b1b1b;
+      font-weight: 600;
+      min-width: 120px;
+      display: inline-block;
+    }
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 1.5rem 0;
+  }
+
+  .gov-button {
+    text-decoration: none;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    background: #1351b4;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: fit-content;
+
+    &:hover {
+      background: #0c326f;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    margin: 1rem;
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+  }
+}
