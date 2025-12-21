@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { GovHeader } from './gov-header';
+import { provideRouter } from '@angular/router';
+import { GovHeaderComponent } from './gov-header';
 
 describe('GovHeader', () => {
-  let component: GovHeader;
-  let fixture: ComponentFixture<GovHeader>;
+  let component: GovHeaderComponent;
+  let fixture: ComponentFixture<GovHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GovHeader]
+      imports: [GovHeaderComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GovHeader);
+    fixture = TestBed.createComponent(GovHeaderComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

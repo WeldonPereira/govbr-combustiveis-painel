@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { GovMenuComponent } from './gov-menu';
 
-import { GovMenu } from './gov-menu';
-
-describe('GovMenu', () => {
-  let component: GovMenu;
-  let fixture: ComponentFixture<GovMenu>;
+describe('GovMenuComponent', () => {
+  let component: GovMenuComponent;
+  let fixture: ComponentFixture<GovMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GovMenu]
+      imports: [GovMenuComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GovMenu);
+    fixture = TestBed.createComponent(GovMenuComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

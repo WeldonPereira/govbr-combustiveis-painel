@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GovLayout } from './gov-layout';
+import { GovLayoutComponent } from './gov-layout';
 
-describe('GovLayout', () => {
-  let component: GovLayout;
-  let fixture: ComponentFixture<GovLayout>;
+describe('GovLayoutComponent', () => {
+  let component: GovLayoutComponent;
+  let fixture: ComponentFixture<GovLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GovLayout]
+      imports: [GovLayoutComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GovLayout);
+    fixture = TestBed.createComponent(GovLayoutComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
