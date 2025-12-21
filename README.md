@@ -39,6 +39,14 @@ O projeto foi construído utilizando:
 - Paginação
 - Consumo de dados via API mockada
 
+### Detalhe do Registro
+- Exibir informações do Motorista e Veículo
+   - Nome
+   - CPF mascarado
+   - Placa
+- Botão "Reportar Erro":
+   - Um botão que simularia o envio de uma correção
+
 ## Tecnologias Utilizadas
 
 - **Angular** (Standalone Components)
@@ -48,6 +56,36 @@ O projeto foi construído utilizando:
 - **Angular Router**
 - **json-server**
 - **Node.js / npm**
+
+## Testes Automatizados
+Os componentes possuem testes unitários (*.spec.ts) com Angular TestBed.
+
+Executar testes:
+```bash
+ng test
+```
+Testes cobrem:
+- Facade
+- Components
+- Interações básicas:
+  - botões
+  - navegação
+  - visualização de dados
+
+## Storybook
+
+Documentação visual de componentes criada com Storybook.
+
+Permite que designers e desenvolvedores visualizem os componentes isoladamente.
+
+Executar Storybook:
+```bash
+npm run storybook
+```
+
+Componentes disponíveis:
+- ConsultaComponent com dados mockados via Faker
+- Cards e gráficos do Dashboard (preparados para visualização isolada)
 
 ## Estrutura do Projeto
 
@@ -60,7 +98,9 @@ src/
  │   ├── shared/        # Componentes reutilizáveis
  │   ├── app.routes.ts  # Rotas
  │   └── app.ts         # Componente raiz
-db.json                 # API mockada
+ ├── enviroment/        # Configurações de prod/dev (corrigido o erro de digitação)
+ ├── stories/           # Documentação global ou assets do Storybook
+ └── db.json            # API mockada
 ```
 ## Como Executar o Projeto
 
